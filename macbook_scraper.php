@@ -1,7 +1,7 @@
 <?php
 
 const URL = "http://www.apple.com/shop/browse/home/specialdeals/mac/macbook_air/13";
-const MATCH_EMAILS = "david.leibovic@gmail.com";//,michellebae00@gmail.com";
+const MATCH_EMAILS = "david.leibovic@gmail.com,michellebae00@gmail.com";
 const ERROR_EMAILS = "david.leibovic@gmail.com";
 $already_seen_urls = [];
 
@@ -67,7 +67,7 @@ function searchForMatches($doc) {
         }
         $price = trim($price_nodes->item(0)->nodeValue);
         $price = (int) str_replace(["$", ","], ["", ""], $price);
-        if ($price < 900) {
+        if ($price < 800) {
             $match_urls[] = getUrlForSpecBoxNode($spec_box_node);
             continue;
         }
