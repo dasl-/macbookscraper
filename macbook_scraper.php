@@ -93,6 +93,7 @@ function searchForMatches($doc) {
 
             if (($memory_match_result && $storage_match_result)) {
                 $match_urls[] = getUrlForSpecBoxNode($spec_box_node);
+                break;
             }
         }
     }
