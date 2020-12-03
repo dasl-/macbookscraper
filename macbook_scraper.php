@@ -118,7 +118,8 @@ function getUrlForSpecBoxNode($spec_box_node) {
     if ($url_nodes->length !== 1) {
         throw new Exception("Unexpected url_nodes count for matches: $url_nodes->length.");
     }
-    return "http://www.apple.com" . $url_nodes->item(0)->getAttribute('href');
+    $url = "http://www.apple.com" . $url_nodes->item(0)->getAttribute('href');
+    return strtok($url, '?'); // filter out a query string that is not necessary and appears to be unique per scrape visit
 }
 
 function removeAlreadySeenMatches($match_urls_to_desc_map, $already_seen_urls) {
